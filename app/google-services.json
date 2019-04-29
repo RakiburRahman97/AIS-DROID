@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "535449982910",
+    "firebase_url": "https://ais-droid.firebaseio.com",
+    "project_id": "ais-droid",
+    "storage_bucket": "ais-droid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535449982910:android:beea6347f65b75b8",
+        "android_client_info": {
+          "package_name": "com.ksoft.rrkhan.ais_droid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535449982910-uj3kbsabo40uh4tjgs6nmpmg2d69io61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ksoft.rrkhan.ais_droid",
+            "certificate_hash": "b3ec9c5c4f4816dc02a60fcc12cc388a77092036"
+          }
+        },
+        {
+          "client_id": "535449982910-t15k8qj3q72an9goqtu116ntma6kurnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5ST9qPJ67siMQO6pDZL7rbGuEW2SkqO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535449982910-t15k8qj3q72an9goqtu116ntma6kurnn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
