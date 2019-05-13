@@ -1,7 +1,6 @@
 package com.ksoft.rrkhan.ais_droid.ui.login
 
-/*import android.app.Activity
-import androidx.lifecycle.Observer
+/*import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.annotation.StringRes  */
 import android.app.Activity
@@ -18,8 +17,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast   */
+import android.widget.ProgressBar*/
 
 import com.ksoft.rrkhan.ais_droid.R
 import kotlinx.android.synthetic.main.activity_login.*
