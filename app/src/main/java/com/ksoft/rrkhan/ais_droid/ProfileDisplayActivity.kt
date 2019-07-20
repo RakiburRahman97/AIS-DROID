@@ -1,5 +1,6 @@
 package com.ksoft.rrkhan.ais_droid
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -11,7 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import kotlinx.android.synthetic.main.app_bar_profile_display.*
+import com.firebase.ui.auth.AuthUI
 
 class ProfileDisplayActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -54,9 +55,16 @@ class ProfileDisplayActivity : AppCompatActivity(), NavigationView.OnNavigationI
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        when (item.itemId)
+        {
+            R.id.logOut -> {
+                AuthUI.getInstance().signOut(this)
+                    .addOnCompleteListener {
+                        var logout = Intent(this@ProfileDisplayActivity, MainActivity::class.java)
+                        startActivity(logout);
+                    }
+            }
+        }
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)

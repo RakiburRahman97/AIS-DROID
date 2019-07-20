@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/logOut"
+        android:orderInCategory="@android:integer/status_bar_notification_info_maxnum"
+        android:title="LogOut"/>
+
 </menu>
