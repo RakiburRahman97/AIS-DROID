@@ -1,7 +1,9 @@
 package com.ksoft.rrkhan.ais_droid
 
 import android.Manifest
+import android.app.PendingIntent
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -17,12 +19,16 @@ import com.ksoft.rrkhan.ais_droid.ui.login.LoginActivity
 
 abstract class MainActivity : AppCompatActivity() {
 
-    var instance:MainActivity=?
-    abstract var locationRequest: LocationRequest
-    abstract var fusedLocationProviderClient:FusedLocationProviderClient
-    fun getInstance(): MainActivity{
-        return instance
+
+    companion object {
+
+        lateinit var instance: MainActivity
+            internal set
     }
+
+    internal lateinit var locationRequest: LocationRequest
+    internal lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,10 +54,18 @@ abstract class MainActivity : AppCompatActivity() {
 
     private fun updateLocation() {
         buildLocationRequest()
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest,getPendingIntent())
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            return
+        }
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest, pendingIntent)
     }
+    private val pendingIntent: PendingIntent?
+        get() = null
 
     private fun buildLocationRequest() {
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
